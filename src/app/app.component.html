@@ -6,20 +6,35 @@
 
       <button class="mb-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
               (click)="onClick()">Pass new input</button>
+
+      <div>
+        <button class="mb-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
+                (click)="route('/')">Route Default</button>
+
+        <button class="ml-5 mr-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
+                (click)="route('/nested-two')">Route Nested-two</button>
+
+        <button class="mb-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
+                (click)="route('/nested-nested-two')">Route Nested-nested-two</button>
+      </div>
     </span>
 
     <div>
       <button class="mb-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
-              (click)="emitEvent()">Emit Parent Event</button>
+              (click)="emitEvent()">Emit Parent Event
+      </button>
 
       <button class="mb-5 ml-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
-              (click)="emitWorkerEvent()">Emit Parent Worker Event</button>
+              (click)="emitWorkerEvent()">Emit Parent Worker Event
+      </button>
 
       <button class="mr-5 ml-5 mb-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
-              (click)="onRemoveChild()">{{ childVisible ? 'Hide' : 'Show'}} Child</button>
+              (click)="onRemoveChild()">{{ childVisible ? 'Hide' : 'Show'}} Child
+      </button>
 
       <button class="mb-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
-              (click)="onRemoveChildTwo()">{{ childTwoVisible ? 'Hide' : 'Show'}} Child Two</button>
+              (click)="onRemoveChildTwo()">{{ childTwoVisible ? 'Hide' : 'Show'}} Child Two
+      </button>
     </div>
 
     <div>
@@ -27,18 +42,20 @@
     </div>
   </div>
 
+  <router-outlet></router-outlet>
+
   <div *ngIf="childVisible">
-    <child-nested
+    <nested-two
       *axLazyElement="url"
       [nestedInput]="nestedInput"
       (nestedOutput)="onNestedOutput($event)">
-    </child-nested>
+    </nested-two>
   </div>
 
   <div *ngIf="childTwoVisible">
-    <child-nested-nested
+    <nested-nested-two
       *axLazyElement="url"
       [nestedInput]="nestedInput">
-    </child-nested-nested>
+    </nested-nested-two>
   </div>
 </div>

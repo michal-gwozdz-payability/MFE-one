@@ -3,10 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve"
+    "start": "ng serve",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
+  "resolutions": {
+    "webpack": "^5.4.0",
+    "license-webpack-plugin": "2.3.17"
+  },
   "dependencies": {
+    "@angular-architects/module-federation": "^12.4.1",
     "@angular-extensions/elements": "^12.6.0",
     "@angular/animations": "~12.2.0",
     "@angular/common": "~12.2.0",

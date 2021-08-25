@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AppService} from '../app-service/app.service';
 import {AppWorkerService} from '../app-service/app-worker.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit, OnDestroy {
   childTwoVisible: boolean = true;
 
   constructor(private readonly appService: AppService,
-              private readonly workerService: AppWorkerService) {
+              private readonly workerService: AppWorkerService,
+              private readonly router: Router) {
   }
 
   ngOnInit(): void {
@@ -26,6 +28,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     console.log('Parent app component destroyed');
+  }
+
+  route(path: string): void {
+    this.router.navigate([path]);
   }
 
   emitEvent(): void {
