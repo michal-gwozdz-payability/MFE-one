@@ -12,6 +12,9 @@
       <button class="mb-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
               (click)="emitEvent()">Emit Parent Event</button>
 
+      <button class="mb-5 ml-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
+              (click)="emitWorkerEvent()">Emit Parent Worker Event</button>
+
       <button class="mr-5 ml-5 mb-5 bg-transparent font-semibold py-2 px-4 border border-white rounded"
               (click)="onRemoveChild()">{{ childVisible ? 'Hide' : 'Show'}} Child</button>
 

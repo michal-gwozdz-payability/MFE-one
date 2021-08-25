@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AppService} from '../app-service/app.service';
+import {AppWorkerService} from '../app-service/app-worker.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit, OnDestroy {
   childVisible: boolean = true;
   childTwoVisible: boolean = true;
 
-  constructor(private readonly appService: AppService) {
+  constructor(private readonly appService: AppService,
+              private readonly workerService: AppWorkerService) {
   }
 
   ngOnInit(): void {
@@ -27,7 +29,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   emitEvent(): void {
-    this.appService.emitEvent(this.inputValue);
+    this.appService.emitEvent(this.inputValue + ' window');
+  }
+
+  emitWorkerEvent(): void {
+    this.workerService.emitEvent(this.inputValue + ' worker');
   }
 
   onRemoveChild(): void {
