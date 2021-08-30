@@ -6,4 +6,9 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   readonly url: string = 'http://localhost:3000/main.js';
+
+  constructor() {
+    // @ts-ignore
+    console.log(PybIntegrationUtils)
+  }
 }
