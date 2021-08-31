@@ -4,7 +4,8 @@
 
 <pyb-mp-status *axLazyElement="url"
                [configuration]="configuration"
-               [integrate]="integration">
+               [integrate]="integration"
+               (loading)="setLoading($event)">
   Test Status
 </pyb-mp-status>
 
