@@ -26,7 +26,7 @@ export class AppComponent {
     }
   }
 
-  setLoading($event: boolean): void {
-    this.loading = $event;
+  setLoading($event: any): void {
+    this.loading = $event.detail;
   }
 }
